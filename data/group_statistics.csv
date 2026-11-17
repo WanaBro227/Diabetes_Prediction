@@ -1,0 +1,17 @@
+"Clinical_Variable","Outcome","Count","Mean","Median","Standard_Deviation"
+"Age","No Diabetes",500,31.19,27,11.6676547916312
+"Age","Diabetes",268,37.0671641791045,36,10.9682536523679
+"BMI","No Diabetes",500,30.8856,30.4,6.50412792002125
+"BMI","Diabetes",268,35.3835820895522,34.25,6.59560282564721
+"BloodPressure","No Diabetes",500,70.92,72,11.929384746955
+"BloodPressure","Diabetes",268,75.1231343283582,74,11.9516718099624
+"DiabetesPedigreeFunction","No Diabetes",500,0.429734,0.336,0.299085304357411
+"DiabetesPedigreeFunction","Diabetes",268,0.5505,0.449,0.372354483554611
+"Glucose","No Diabetes",500,110.682,107.5,24.7072007223617
+"Glucose","Diabetes",268,142.130597014925,140,29.5688385614729
+"Insulin","No Diabetes",500,127.792,125,74.4474686418172
+"Insulin","Diabetes",268,164.701492537313,125,100.932248559428
+"Pregnancies","No Diabetes",500,3.298,2,3.01718458262189
+"Pregnancies","Diabetes",268,4.86567164179105,4,3.74123904404155
+"SkinThickness","No Diabetes",500,27.726,29,8.55296617910546
+"SkinThickness","Diabetes",268,31.6865671641791,29,8.66299367035153

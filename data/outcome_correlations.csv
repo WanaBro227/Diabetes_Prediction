@@ -1,0 +1,9 @@
+"Clinical_Variable","Correlation"
+"Glucose",0.492782403915027
+"BMI",0.312038338677111
+"Age",0.238355983027198
+"Pregnancies",0.221898153033987
+"SkinThickness",0.21487321939199
+"Insulin",0.203790342244547
+"DiabetesPedigreeFunction",0.17384406565296
+"BloodPressure",0.165722913080577
