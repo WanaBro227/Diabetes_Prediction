@@ -1,15 +1,11 @@
 
-# ============================================================
 # PROJECT: DIABETES BIOINFORMATICS AND COMPUTATIONAL BIOLOGY
 # SCRIPT: 01_data_import.R
 # PURPOSE: Clinical Dataset Acquisition and Initial Inspection
 # STUDENT REGISTRATION: 2021/ICT/34
 # UNIVERSITY: UNIVERSITY OF VAVUNIYA
-# ============================================================
 
-# ------------------------------------------------------------
 # 1. INITIAL CONFIGURATION
-# ------------------------------------------------------------
 
 cat("\n")
 cat("============================================================\n")
@@ -29,9 +25,7 @@ for (folder in required_dirs) {
   }
 }
 
-# ------------------------------------------------------------
 # 2. REQUIRED PACKAGES
-# ------------------------------------------------------------
 
 required_packages <- c("tidyverse", "mlbench")
 
@@ -50,9 +44,7 @@ for (package in required_packages) {
 
 library(tidyverse)
 
-# ------------------------------------------------------------
 # 3. DATASET SOURCE CONFIGURATION
-# ------------------------------------------------------------
 
 # Preferred public dataset source
 source_urls <- c(
@@ -76,9 +68,7 @@ expected_columns <- c(
   "Outcome"
 )
 
-# ------------------------------------------------------------
 # 4. DOWNLOAD AND VALIDATE DATASET
-# ------------------------------------------------------------
 
 cat("\n[STEP 1] Acquiring the clinical dataset...\n")
 
@@ -156,9 +146,7 @@ for (url in source_urls) {
   unlink(temporary_file)
 }
 
-# ------------------------------------------------------------
 # 5. PACKAGE FALLBACK
-# ------------------------------------------------------------
 
 # Use the mlbench package as a final alternative.
 # This prevents the workflow from depending on a single
@@ -206,13 +194,7 @@ if (is.null(diabetes_raw)) {
   
 }
 
-# ------------------------------------------------------------
 # 6. STANDARDIZE VARIABLE NAMES
-# ------------------------------------------------------------
-
-# ------------------------------------------------------------
-# 6. STANDARDIZE VARIABLE NAMES
-# ------------------------------------------------------------
 
 cat("\n[STEP 3] Standardizing clinical variable names...\n")
 
@@ -339,9 +321,7 @@ print(names(diabetes_raw))
 cat("\nVariable standardization completed successfully.\n")
 
 
-# ------------------------------------------------------------
 # 7. DATA INTEGRITY VERIFICATION
-# ------------------------------------------------------------
 
 cat("\n[STEP 4] Performing data integrity verification...\n")
 
@@ -374,9 +354,7 @@ missing_values <- colSums(
   is.na(diabetes_raw)
 )
 
-# ------------------------------------------------------------
 # 8. DATASET INFORMATION
-# ------------------------------------------------------------
 
 cat("\n[STEP 5] Dataset information\n")
 
@@ -414,9 +392,7 @@ str(diabetes_raw)
 cat("\nStatistical summary:\n")
 print(summary(diabetes_raw))
 
-# ------------------------------------------------------------
 # 9. DATASET SOURCE AND CITATION
-# ------------------------------------------------------------
 
 cat("\n[STEP 6] Dataset provenance\n")
 
@@ -448,9 +424,7 @@ cat(
   "not establish an open license.\n"
 )
 
-# ------------------------------------------------------------
 # 10. SAVE RAW DATASET
-# ------------------------------------------------------------
 
 cat("\n[STEP 7] Saving imported dataset...\n")
 
@@ -467,9 +441,7 @@ saveRDS(
   file = "data/01_raw_diabetes.rds"
 )
 
-# ------------------------------------------------------------
 # 11. VERIFY SAVED FILES
-# ------------------------------------------------------------
 
 stopifnot(
   file.exists("data/diabetes_raw.csv"),
@@ -488,9 +460,7 @@ stopifnot(
   )
 )
 
-# ------------------------------------------------------------
 # 12. FINAL SUMMARY
-# ------------------------------------------------------------
 
 cat("\n")
 cat("============================================================\n")
