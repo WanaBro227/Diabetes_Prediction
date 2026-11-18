@@ -1,0 +1,9 @@
+Variable,W_Statistic,P_Value,Adjusted_P_Value,Normality_At_0_05
+Pregnancies,0.9043,0,0,Evidence against normality
+Glucose,0.9696,0,0,Evidence against normality
+BloodPressure,0.9878,0,0,Evidence against normality
+SkinThickness,0.9278,0,0,Evidence against normality
+Insulin,0.6415,0,0,Evidence against normality
+BMI,0.9794,0,0,Evidence against normality
+DiabetesPedigreeFunction,0.8365,0,0,Evidence against normality
+Age,0.8748,0,0,Evidence against normality

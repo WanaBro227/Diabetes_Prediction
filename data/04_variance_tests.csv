@@ -1,0 +1,9 @@
+Variable,Chi_Square,Degrees_of_Freedom,P_Value,Adjusted_P_Value,Variance_Difference
+Pregnancies,28.2577,1,0,0,Evidence of unequal variances
+Glucose,24.9185,1,0,0,Evidence of unequal variances
+BloodPressure,0.233,1,0.6293,0.6928,No significant evidence of unequal variances
+SkinThickness,2.4062,1,0.1209,0.1704,No significant evidence of unequal variances
+Insulin,0.1561,1,0.6928,0.6928,No significant evidence of unequal variances
+BMI,2.3194,1,0.1278,0.1704,No significant evidence of unequal variances
+DiabetesPedigreeFunction,21.1014,1,0,0,Evidence of unequal variances
+Age,12.7981,1,3e-4,7e-4,Evidence of unequal variances

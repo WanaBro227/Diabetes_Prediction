@@ -1,0 +1,9 @@
+Variable,Pearson_Correlation,Pearson_P_Value,Spearman_Correlation,Spearman_P_Value,Pearson_Adjusted_P,Spearman_Adjusted_P
+Pregnancies,0.2219,0,0.1987,0,0,0
+Glucose,0.4928,0,0.4814,0,0,0
+BloodPressure,0.1657,0,0.1708,0,0,0
+SkinThickness,0.2149,0,0.2157,0,0,0
+Insulin,0.2038,0,0.2744,0,0,0
+BMI,0.312,0,0.307,0,0,0
+DiabetesPedigreeFunction,0.1738,0,0.1754,0,0,0
+Age,0.2384,0,0.309,0,0,0
