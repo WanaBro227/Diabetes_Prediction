@@ -1,0 +1,25 @@
+Model,Actual,Predicted,Count
+Logistic Regression,No Diabetes,No Diabetes,91
+Logistic Regression,Diabetes,No Diabetes,21
+Logistic Regression,No Diabetes,Diabetes,9
+Logistic Regression,Diabetes,Diabetes,33
+Naive Bayes,No Diabetes,No Diabetes,83
+Naive Bayes,Diabetes,No Diabetes,16
+Naive Bayes,No Diabetes,Diabetes,17
+Naive Bayes,Diabetes,Diabetes,38
+Decision Tree,No Diabetes,No Diabetes,93
+Decision Tree,Diabetes,No Diabetes,27
+Decision Tree,No Diabetes,Diabetes,7
+Decision Tree,Diabetes,Diabetes,27
+k-Nearest Neighbours,No Diabetes,No Diabetes,81
+k-Nearest Neighbours,Diabetes,No Diabetes,20
+k-Nearest Neighbours,No Diabetes,Diabetes,19
+k-Nearest Neighbours,Diabetes,Diabetes,34
+Support Vector Machine,No Diabetes,No Diabetes,88
+Support Vector Machine,Diabetes,No Diabetes,21
+Support Vector Machine,No Diabetes,Diabetes,12
+Support Vector Machine,Diabetes,Diabetes,33
+K-means Clustering,No Diabetes,No Diabetes,74
+K-means Clustering,Diabetes,No Diabetes,10
+K-means Clustering,No Diabetes,Diabetes,26
+K-means Clustering,Diabetes,Diabetes,44
