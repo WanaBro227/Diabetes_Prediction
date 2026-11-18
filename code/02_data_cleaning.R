@@ -1,15 +1,10 @@
-
-# ============================================================
 # PROJECT: DIABETES BIOINFORMATICS AND COMPUTATIONAL BIOLOGY
 # SCRIPT: 02_data_cleaning.R
 # PURPOSE: Clinical Data Cleaning and Preprocessing
 # STUDENT REGISTRATION: 2021/ICT/34
 # UNIVERSITY: UNIVERSITY OF VAVUNIYA
-# ============================================================
 
-# ------------------------------------------------------------
 # 1. INITIAL CONFIGURATION
-# ------------------------------------------------------------
 
 cat("\n")
 cat("============================================================\n")
@@ -33,9 +28,7 @@ if (!file.exists(input_file)) {
   
 }
 
-# ------------------------------------------------------------
 # 2. REQUIRED PACKAGES
-# ------------------------------------------------------------
 
 required_packages <- c(
   "tidyverse",
@@ -60,9 +53,7 @@ for (package in required_packages) {
 library(tidyverse)
 library(caret)
 
-# ------------------------------------------------------------
 # 3. LOAD RAW DATASET
-# ------------------------------------------------------------
 
 cat("\n[STEP 1] Loading raw clinical dataset...\n")
 
@@ -73,9 +64,7 @@ cat("\nDataset loaded successfully.\n")
 cat("Observations:", nrow(diabetes_raw), "\n")
 cat("Variables:", ncol(diabetes_raw), "\n")
 
-# ------------------------------------------------------------
 # 4. VERIFY DATA STRUCTURE
-# ------------------------------------------------------------
 
 expected_columns <- c(
   "Pregnancies",
@@ -123,9 +112,7 @@ diabetes_raw$Outcome <- as.integer(
   diabetes_raw$Outcome
 )
 
-# ------------------------------------------------------------
 # 5. DEFINE CLINICAL VARIABLES
-# ------------------------------------------------------------
 
 clinical_variables <- c(
   "Pregnancies",
@@ -148,9 +135,7 @@ biologically_impossible_zero <- c(
 
 target_variable <- "Outcome"
 
-# ------------------------------------------------------------
 # 6. INITIAL DATA QUALITY ASSESSMENT
-# ------------------------------------------------------------
 
 cat("\n[STEP 2] Initial data quality assessment\n")
 
@@ -189,9 +174,7 @@ print(initial_zero_count)
 
 cat("\nDuplicate observations:", initial_duplicates, "\n")
 
-# ------------------------------------------------------------
 # 7. HANDLE BIOLOGICALLY IMPOSSIBLE ZERO VALUES
-# ------------------------------------------------------------
 
 cat("\n[STEP 3] Replacing impossible zero values with NA...\n")
 
@@ -217,9 +200,7 @@ for (variable in biologically_impossible_zero) {
   
 }
 
-# ------------------------------------------------------------
 # 8. MISSING VALUE ASSESSMENT
-# ------------------------------------------------------------
 
 cat("\n[STEP 4] Missing-value assessment after zero correction\n")
 
@@ -256,9 +237,7 @@ if (any(is.na(diabetes_clean$Outcome))) {
   
 }
 
-# ------------------------------------------------------------
 # 9. MEDIAN IMPUTATION
-# ------------------------------------------------------------
 
 cat("\n[STEP 5] Performing median imputation...\n")
 
@@ -305,9 +284,7 @@ for (variable in clinical_variables) {
 cat("\nMedian imputation summary:\n")
 print(imputation_summary)
 
-# ------------------------------------------------------------
 # 10. K-NEAREST-NEIGHBOUR IMPUTATION
-# ------------------------------------------------------------
 
 cat("\n[STEP 6] Performing k-NN imputation...\n")
 
@@ -349,9 +326,7 @@ cat("\nk-NN imputation completed.\n")
 cat("Number of neighbours: 5\n")
 cat("Variables processed:", ncol(knn_imputed_scaled), "\n")
 
-# ------------------------------------------------------------
 # 11. STANDARDIZATION
-# ------------------------------------------------------------
 
 cat("\n[STEP 7] Generating standardized variables...\n")
 
@@ -367,9 +342,7 @@ names(standardized_data) <- paste0(
   "_scaled"
 )
 
-# ------------------------------------------------------------
 # 12. MIN-MAX NORMALIZATION
-# ------------------------------------------------------------
 
 cat("\n[STEP 8] Generating normalized variables...\n")
 
@@ -399,9 +372,7 @@ names(normalized_data) <- paste0(
   "_normalized"
 )
 
-# ------------------------------------------------------------
 # 13. COMBINE PROCESSED DATA
-# ------------------------------------------------------------
 
 cat("\n[STEP 9] Combining processed clinical variables...\n")
 
@@ -412,9 +383,7 @@ diabetes_clean <- median_imputed %>%
   bind_cols(standardized_data) %>%
   bind_cols(normalized_data)
 
-# ------------------------------------------------------------
 # 14. FINAL DATA QUALITY ASSESSMENT
-# ------------------------------------------------------------
 
 cat("\n[STEP 10] Final data quality assessment\n")
 
@@ -505,9 +474,7 @@ cat("\nTotal standardized variables:",
 cat("Total normalized variables:",
     length(clinical_variables), "\n")
 
-# ------------------------------------------------------------
 # 16. SAVE PROCESSED DATASET
-# ------------------------------------------------------------
 
 cat("\n[STEP 12] Saving processed dataset...\n")
 
@@ -527,9 +494,7 @@ saveRDS(
   file = "data/imputation_summary.rds"
 )
 
-# ------------------------------------------------------------
 # 17. VERIFY OUTPUT FILES
-# ------------------------------------------------------------
 
 stopifnot(
   file.exists("data/02_clean_diabetes.rds"),
@@ -546,9 +511,7 @@ stopifnot(
   !anyNA(verification_data)
 )
 
-# ------------------------------------------------------------
 # 18. FINAL SUMMARY
-# ------------------------------------------------------------
 
 cat("\n")
 cat("============================================================\n")

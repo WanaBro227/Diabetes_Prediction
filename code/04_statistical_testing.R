@@ -1,14 +1,9 @@
-
-# ============================================================
 # IT4133 - Bioinformatics and Computational Biology
 # Project: Diabetes Prediction
 # Script: 04_statistical_testing.R
 # Purpose: Statistical Testing and Group Comparisons
-# ============================================================
 
-# ------------------------------------------------------------
 # 1. LOAD REQUIRED PACKAGES
-# ------------------------------------------------------------
 
 required_packages <- c(
   "tidyverse"
@@ -26,9 +21,7 @@ for (package_name in required_packages) {
   )
 }
 
-# ------------------------------------------------------------
 # 2. DEFINE PROJECT DIRECTORIES
-# ------------------------------------------------------------
 
 data_dir <- "data"
 figures_dir <- "figures"
@@ -44,9 +37,7 @@ if (!dir.exists(figures_dir)) {
   )
 }
 
-# ------------------------------------------------------------
 # 3. LOAD CLEANED DATASET
-# ------------------------------------------------------------
 
 input_file <- file.path(
   data_dir,
@@ -74,9 +65,7 @@ cat(
   "columns\n"
 )
 
-# ------------------------------------------------------------
 # 4. DEFINE CLINICAL VARIABLES
-# ------------------------------------------------------------
 
 clinical_variables <- c(
   "Pregnancies",
@@ -141,9 +130,7 @@ cat("\nClinical variables included:\n")
 
 print(clinical_variables)
 
-# ------------------------------------------------------------
 # 5. HELPER FUNCTIONS
-# ------------------------------------------------------------
 
 # Safely perform statistical tests.
 safe_test <- function(test_function) {
@@ -212,9 +199,7 @@ round_numeric_columns <- function(data, digits = 4) {
     )
 }
 
-# ------------------------------------------------------------
 # 6. SHAPIRO-WILK NORMALITY TESTS
-# ------------------------------------------------------------
 
 cat("\n--------------------------------------------\n")
 cat("6. SHAPIRO-WILK NORMALITY TESTS\n")
@@ -268,9 +253,7 @@ normality_results <- round_numeric_columns(
 
 print(normality_results)
 
-# ------------------------------------------------------------
 # 7. WELCH TWO-SAMPLE T-TESTS
-# ------------------------------------------------------------
 
 cat("\n--------------------------------------------\n")
 cat("7. WELCH TWO-SAMPLE T-TESTS\n")
@@ -356,9 +339,7 @@ welch_results <- round_numeric_columns(
 
 print(welch_results)
 
-# ------------------------------------------------------------
 # 8. WILCOXON RANK-SUM TESTS
-# ------------------------------------------------------------
 
 cat("\n--------------------------------------------\n")
 cat("8. WILCOXON RANK-SUM TESTS\n")
@@ -417,9 +398,7 @@ wilcoxon_results <- round_numeric_columns(
 
 print(wilcoxon_results)
 
-# ------------------------------------------------------------
 # 9. FLIGNER-KILLEEN VARIANCE TESTS
-# ------------------------------------------------------------
 
 cat("\n--------------------------------------------\n")
 cat("9. FLIGNER-KILLEEN VARIANCE TESTS\n")
@@ -478,9 +457,7 @@ variance_results <- round_numeric_columns(
 
 print(variance_results)
 
-# ------------------------------------------------------------
 # 10. PEARSON AND SPEARMAN CORRELATION TESTS
-# ------------------------------------------------------------
 
 cat("\n--------------------------------------------\n")
 cat("10. PEARSON AND SPEARMAN CORRELATIONS\n")
@@ -576,9 +553,7 @@ correlation_results <- round_numeric_columns(
 
 print(correlation_results)
 
-# ------------------------------------------------------------
 # 11. PREPARE GROUP MEANS FOR VISUALIZATION
-# ------------------------------------------------------------
 
 group_means <- analysis_data %>%
   pivot_longer(
@@ -596,9 +571,7 @@ group_means <- analysis_data %>%
     .groups = "drop"
   )
 
-# ------------------------------------------------------------
 # 12. FIGURE 10 - GROUP MEAN COMPARISON
-# ------------------------------------------------------------
 
 cat("\n--------------------------------------------\n")
 cat("12. GENERATING STATISTICAL FIGURES\n")
@@ -662,9 +635,7 @@ ggsave(
   dpi = 300
 )
 
-# ------------------------------------------------------------
 # 13. FIGURE 11 - ADJUSTED P-VALUE COMPARISON
-# ------------------------------------------------------------
 
 plot_welch <- welch_results %>%
   mutate(
@@ -728,9 +699,7 @@ ggsave(
   dpi = 300
 )
 
-# ------------------------------------------------------------
 # 14. FIGURE 12 - CORRELATION COMPARISON
-# ------------------------------------------------------------
 
 correlation_plot_data <- correlation_results %>%
   select(
@@ -817,9 +786,7 @@ ggsave(
   dpi = 300
 )
 
-# ------------------------------------------------------------
 # 15. SAVE STATISTICAL RESULTS AS CSV FILES
-# ------------------------------------------------------------
 
 write_csv(
   normality_results,
@@ -861,9 +828,7 @@ write_csv(
   )
 )
 
-# ------------------------------------------------------------
 # 16. SAVE ALL RESULTS AS A SINGLE RDS OBJECT
-# ------------------------------------------------------------
 
 statistical_results <- list(
   
@@ -893,9 +858,7 @@ saveRDS(
   )
 )
 
-# ------------------------------------------------------------
 # 17. VERIFY OUTPUT FILES
-# ------------------------------------------------------------
 
 expected_outputs <- c(
   
@@ -937,9 +900,7 @@ if (!all(output_status$Exists)) {
   )
 }
 
-# ------------------------------------------------------------
 # 18. FINAL SUMMARY
-# ------------------------------------------------------------
 
 cat("\n============================================\n")
 cat("STATISTICAL TESTING COMPLETED SUCCESSFULLY\n")

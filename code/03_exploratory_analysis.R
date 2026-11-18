@@ -1,15 +1,10 @@
-
-# ============================================================
 # PROJECT: DIABETES BIOINFORMATICS AND COMPUTATIONAL BIOLOGY
 # SCRIPT: 03_exploratory_analysis.R
 # PURPOSE: Exploratory Data Analysis of Clinical Measurements
 # DATASET: Pima Indians Diabetes Dataset
-# ============================================================
 
 
-# ------------------------------------------------------------
 # 1. PROJECT CONFIGURATION
-# ------------------------------------------------------------
 
 cat("\n")
 cat("============================================================\n")
@@ -40,9 +35,7 @@ if (!dir.exists("figures")) {
 }
 
 
-# ------------------------------------------------------------
 # 2. REQUIRED PACKAGES
-# ------------------------------------------------------------
 
 required_packages <- c(
   "tidyverse",
@@ -70,9 +63,7 @@ library(ggplot2)
 library(corrplot)
 
 
-# ------------------------------------------------------------
 # 3. LOAD CLEANED DATASET
-# ------------------------------------------------------------
 
 cat("\n[STEP 1] Loading cleaned clinical dataset...\n")
 
@@ -92,9 +83,7 @@ if (anyNA(diabetes_data)) {
 }
 
 
-# ------------------------------------------------------------
 # 4. DEFINE VARIABLES
-# ------------------------------------------------------------
 
 clinical_variables <- c(
   "Pregnancies",
@@ -145,9 +134,7 @@ eda_data <- diabetes_data %>%
 cat("\nClinical variables selected:", length(clinical_variables), "\n")
 
 
-# ------------------------------------------------------------
 # 5. DESCRIPTIVE STATISTICAL ANALYSIS
-# ------------------------------------------------------------
 
 cat("\n[STEP 2] Calculating descriptive statistics...\n")
 
@@ -215,9 +202,7 @@ write.csv(
 )
 
 
-# ------------------------------------------------------------
 # 6. OUTCOME DISTRIBUTION ANALYSIS
-# ------------------------------------------------------------
 
 cat("\n[STEP 3] Analysing diabetes outcome distribution...\n")
 
@@ -311,9 +296,7 @@ ggsave(
 print(outcome_plot)
 
 
-# ------------------------------------------------------------
 # 7. CLINICAL VARIABLE DISTRIBUTIONS
-# ------------------------------------------------------------
 
 cat("\n[STEP 4] Examining clinical variable distributions...\n")
 
@@ -440,9 +423,7 @@ ggsave(
 print(density_plot)
 
 
-# ------------------------------------------------------------
 # 8. COMPARISON OF CLINICAL VARIABLES BY OUTCOME
-# ------------------------------------------------------------
 
 cat("\n[STEP 5] Comparing clinical measurements by outcome...\n")
 
@@ -566,9 +547,7 @@ ggsave(
 print(boxplot_plot)
 
 
-# ------------------------------------------------------------
 # 9. CORRELATION ANALYSIS
-# ------------------------------------------------------------
 
 cat("\n[STEP 6] Calculating correlations between clinical variables...\n")
 
@@ -624,10 +603,7 @@ corrplot(
 
 dev.off()
 
-
-# ------------------------------------------------------------
 # 10. CORRELATION WITH DIABETES OUTCOME
-# ------------------------------------------------------------
 
 cat("\n[STEP 7] Examining associations with diabetes outcome...\n")
 
@@ -741,9 +717,7 @@ ggsave(
 print(outcome_correlation_plot)
 
 
-# ------------------------------------------------------------
 # 11. SCATTER PLOT ANALYSIS
-# ------------------------------------------------------------
 
 cat("\n[STEP 8] Examining relationships between selected variables...\n")
 
@@ -804,9 +778,7 @@ ggsave(
 print(scatter_plot)
 
 
-# ------------------------------------------------------------
 # 12. AGE AND GLUCOSE DISTRIBUTIONS BY OUTCOME
-# ------------------------------------------------------------
 
 cat("\n[STEP 9] Analysing age and glucose patterns...\n")
 
@@ -910,9 +882,7 @@ ggsave(
 print(glucose_plot)
 
 
-# ------------------------------------------------------------
 # 13. SAVE EDA RESULTS
-# ------------------------------------------------------------
 
 cat("\n[STEP 10] Saving exploratory analysis results...\n")
 
@@ -936,9 +906,7 @@ saveRDS(
 )
 
 
-# ------------------------------------------------------------
 # 14. VERIFY GENERATED FILES
-# ------------------------------------------------------------
 
 cat("\n[STEP 11] Verifying generated output files...\n")
 
@@ -995,9 +963,7 @@ if (!all(output_status$Exists)) {
 }
 
 
-# ------------------------------------------------------------
 # 15. FINAL SUMMARY
-# ------------------------------------------------------------
 
 cat("\n")
 cat("============================================================\n")
